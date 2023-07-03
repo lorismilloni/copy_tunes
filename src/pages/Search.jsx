@@ -110,5 +110,3 @@ export default class Search extends React.Component {
   }
 }
 
-// requisito 5 feito com ajuda da Yasmim Matos
-// o requisito 6, com a função handleAlbumSearch, bem como seus estados e o componente AlbumInfo foi feito seguindo o PR do Leonardo Vogel

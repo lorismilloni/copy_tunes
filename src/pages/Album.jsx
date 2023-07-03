@@ -93,8 +93,6 @@ export default class Album extends React.Component {
   }
 }
 
-// requisito 7, 8, 9 e 10 feito com base do PR do Leonardo Vogel
-
 Album.propTypes = {
   id: PropTypes.number,
 }.isRequired;
