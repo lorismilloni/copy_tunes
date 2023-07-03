@@ -12,32 +12,38 @@ export default class MusicCard extends React.Component {
     } = this.props;
 
     return (
-      <div>
-        <p>{trackName}</p>
-        <audio data-testid="audio-component" src={ previewUrl } controls>
-          <track kind="captions" />
-          O seu navegador não suporta o elemento
-          {' '}
-          <code>audio</code>
-          .
-        </audio>
-        <label htmlFor="{ trackId }">
-          Favorita
-          <input
-            type="checkbox"
-            name="favorite"
-            id={ trackId }
-            data-testid={ `checkbox-music-${trackId}` }
-            onChange={ handleFavorite }
-            checked={ favoriteSongs.includes(trackId) }
-          />
-        </label>
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column box is-three-quarters">
+            <p class="title">{trackName}</p>
+          <div class="box media has-background-black-bis">
+            <audio class="media-center" data-testid="audio-component" src={ previewUrl } controls>
+              <track kind="captions" />
+              O seu navegador não suporta o elemento
+              {' '}
+              <code>audio</code>
+              .
+            </audio>
+          </div>
+          <div class="box">
+            <label class="checkbox subtitle ml-3" htmlFor="{ trackId }">
+              <input
+                type="checkbox"
+                name="favorite"
+                id={ trackId }
+                data-testid={ `checkbox-music-${trackId}` }
+                onChange={ handleFavorite }
+                checked={ favoriteSongs.includes(trackId) }
+              />
+            <p>Favorita</p>
+            </label>
+          </div>
+        </div>
+        <div class="column"></div>
       </div>
     );
   }
 }
-
-// usado o modelo do Alessandro Achtenberg para desestruturar as props e usar como parâmetro na handleFavorite
 
 MusicCard.propTypes = {
   trackName: PropTypes.string,

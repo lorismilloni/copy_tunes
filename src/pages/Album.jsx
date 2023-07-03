@@ -64,22 +64,29 @@ export default class Album extends React.Component {
       <section data-testid="page-album">
         <Header />
         <main>
-          { (loading) ? <Loading />
-            : (
-              <section>
-                <h4 data-testid="artist-name">{artistName}</h4>
-                <h5 data-testid="album-name">{collectionName}</h5>
-                <section>
-                  { tracks.map((track) => (<MusicCard
-                    key={ track.trackId }
-                    handleFavorite={ () => this.handleFavorite(track) }
-                    favoriteSongs={ favoriteSongs }
-                    { ...track }
-                  />)) }
-                  {/* o map aqui é usado para renderizar todas as músicas do array tracks, chamando o componente MusicCard e passando como prop todo o objeto da música, com um spread operator */}
-                </section>
-              </section>
-            )}
+          <div class="columns box">
+            { (loading) ? <Loading class="column"/>
+              : (
+                <>
+                  <div class="column"></div>
+                  <section>
+                    <div class="column has-background-warning">
+                      <h4 class="title" data-testid="artist-name">{artistName}</h4>
+                      <h5 class="title" data-testid="album-name">{collectionName}</h5>
+                      <section>
+                        {tracks.map((track) => (<MusicCard
+                          key={track.trackId}
+                          handleFavorite={() => this.handleFavorite(track)}
+                          favoriteSongs={favoriteSongs}
+                          {...track} />))}
+                        {/* o map aqui é usado para renderizar todas as músicas do array tracks, chamando o componente MusicCard e passando como prop todo o objeto da música, com um spread operator */}
+                      </section>
+                    </div>
+                  </section>
+                  <div class="column"></div>
+                </>
+              )}
+          </div>
         </main>
       </section>
     );
