@@ -16,8 +16,8 @@ export default class MusicCard extends React.Component {
         <div class="column"></div>
         <div class="column box is-three-quarters">
             <p class="title">{trackName}</p>
-          <div class="box media has-background-black-bis">
-            <audio class="media-center" data-testid="audio-component" src={ previewUrl } controls>
+          <div class="box has-background-black-bis">
+            <audio data-testid="audio-component" src={ previewUrl } controls>
               <track kind="captions" />
               O seu navegador não suporta o elemento
               {' '}
