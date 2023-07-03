@@ -43,31 +43,41 @@ class Login extends React.Component {
   }
   // quando o botão de login é clicado, essa função é chamada, e seta o estado de loading como true, liberando o componente <Loading /> no render, após isso a função createUser() será chamada de modo assíncrono, e após o retorno o loading volta para false, e não renderiza mais o componente loading, e muda o estado de logged para true, redirecionando para a próxima página
 
-  // requisito 2 feito acompanhando o PR do Leonardo Vogel
-
   render() {
     const { disableButton, redirectToPage, loading } = this.state;
     return (
-      <div data-testid="page-login">
-        { redirectToPage && <Redirect to="/search" /> }
-        { loading ? <Loading /> : (
-          <form>
-            <input
-              data-testid="login-name-input"
-              type="text"
-              placeholder="Nome de usuário"
-              onChange={ this.handleChange }
-            />
-            <button
-              data-testid="login-submit-button"
-              type="submit"
-              disabled={ disableButton }
-              onClick={ this.onClickButton }
-            >
-              Entrar
-            </button>
-          </form>)}
+      <>
+      <div class="columns box" data-testid="page-login">
+        {redirectToPage && <Redirect to="/search" />}
+        <div class="column"></div>
+        {loading ? <Loading /> : (
+          <div class="column box is-narrow field has-background-light">
+            <form>
+              <div class="control field">
+                <input
+                  class="input is-primary is-large is-rounded has-text-success"
+                  data-testid="login-name-input"
+                  type="text"
+                  placeholder="Nome de usuário"
+                  onChange={this.handleChange} />
+              </div>
+              <div>
+                <button
+                  class="button is-dark is-medium is-responsive is-outlined is-fullwidth has-text-success"
+                  data-testid="login-submit-button"
+                  type="submit"
+                  disabled={disableButton}
+                  onClick={this.onClickButton}
+                >
+                  Entrar
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
+      <div class="column"></div>
       </div>
+      </>
     );
   }
 }
