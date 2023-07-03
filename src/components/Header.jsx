@@ -33,25 +33,26 @@ export default class Header extends React.Component {
 
     return (
       <header data-testid="header-component">
-        <h3>Título</h3>
-        <nav>
-          <Link to="/search">
-            <h4 data-testid="link-to-search">Pesquisa</h4>
-          </Link>
-          <Link to="/favorites">
-            <h4 data-testid="link-to-favorites">Favoritos</h4>
-          </Link>
-          <Link to="/profile">
-            <h4 data-testid="link-to-profile">Perfil</h4>
-          </Link>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <h3 class="navbar-item">Copy Tunes</h3>
+          <div class="navbar-start">
+            <Link class="navbar-item" to="/search">
+              <h4 data-testid="link-to-search">Pesquisa</h4>
+            </Link>
+            <Link class="navbar-item" to="/favorites">
+              <h4 data-testid="link-to-favorites">Favoritos</h4>
+            </Link>
+            <Link class="navbar-item" to="/profile">
+              <h4 data-testid="link-to-profile">Perfil</h4>
+            </Link>
+          </div>
+          <div class="navbar-item navbar-end">
+            <h5 data-testid="header-user-name">{ userName }</h5>
+          </div>
         </nav>
         { loading && <Loading /> }
-        <section>
-          <h5 data-testid="header-user-name">{ userName }</h5>
-        </section>
       </header>
     );
   }
 }
 
-// requisito 3 e 4 foi feito com a ajuda da Yasmim Matos

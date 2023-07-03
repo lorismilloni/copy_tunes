@@ -63,34 +63,44 @@ export default class Search extends React.Component {
         <div data-testid="page-search">
           <Header />
         </div>
-        { loading ? <Loading /> : (
-          <form>
-            <input
-              type="text"
-              value={ searchInput }
-              onChange={ this.handleChange }
-              data-testid="search-artist-input"
-            />
-            <button
-              type="submit"
-              disabled={ searchButton }
-              onClick={ this.handleAlbumSearch }
-              data-testid="search-artist-button"
-            >
-              Pesquisar
-            </button>
-          </form>)}
-        { albumFound && (
-          <section>
-            { albums.length ? <h4>{`Resultado de álbuns de: ${artist}`}</h4> : (
-              <h4>Nenhum álbum foi encontrado</h4>) }
-            <section>
-              { albums.map((album) => (
-                <AlbumInfo key={ album.collectionId } { ...album } />
-              ))}
-            </section>
-          </section>
-        )}
+        <div class="columns">
+        <div class="column"></div>
+          <div class="box column has-background-warning">
+            { loading ? <Loading /> : (
+              <form>
+                <div class="control field">
+                  <input
+                    class="input is-large is-rounded"
+                    type="text"
+                    value={ searchInput }
+                    onChange={ this.handleChange }
+                    data-testid="search-artist-input"
+                  />
+                </div>
+                <button
+                  class="button is-dark is-medium is-responsive is-outlined is-fullwidth has-text-white"
+                  type="submit"
+                  disabled={ searchButton }
+                  onClick={ this.handleAlbumSearch }
+                  data-testid="search-artist-button"
+                >
+                  Pesquisar
+                </button>
+              </form>)}
+            { albumFound && (
+              <section>
+                { albums.length ? <h4>{`Resultado de álbuns de: ${artist}`}</h4> : (
+                  <h4>Nenhum álbum foi encontrado</h4>) }
+                <section>
+                  { albums.map((album) => (
+                    <AlbumInfo key={ album.collectionId } { ...album } />
+                  ))}
+                </section>
+              </section>
+            )}
+          </div>
+          <div class="column"></div>
+        </div>
       </>
     );
   }
