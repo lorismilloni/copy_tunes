@@ -6,8 +6,8 @@ export default class AlbumInfo extends Component {
   render() {
     const { collectionId, collectionName } = this.props;
     return (
-      <li>
-        <Link
+      <li class="box">
+        <Link class="title is-4"
           to={ `/album/${collectionId}` }
           data-testid={ `link-to-album-${collectionId}` }
         >
@@ -17,8 +17,6 @@ export default class AlbumInfo extends Component {
     );
   }
 }
-
-// Componente AlbumInfo seguindo modelo do AlbumCard feito pelo Leonardo Vogel
 
 AlbumInfo.propTypes = {
   collectionId: PropType.string,

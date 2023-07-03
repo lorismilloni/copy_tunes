@@ -34,20 +34,20 @@ export default class Header extends React.Component {
     return (
       <header data-testid="header-component">
         <nav class="navbar" role="navigation" aria-label="main navigation">
-          <h3 class="navbar-item">Copy Tunes</h3>
+          <h3 class="navbar-item subtitle">Copy Tunes</h3>
           <div class="navbar-start">
             <Link class="navbar-item" to="/search">
-              <h4 data-testid="link-to-search">Pesquisa</h4>
+              <h4 class="subtitle" data-testid="link-to-search">Pesquisa</h4>
             </Link>
             <Link class="navbar-item" to="/favorites">
-              <h4 data-testid="link-to-favorites">Favoritos</h4>
+              <h4 class="subtitle" data-testid="link-to-favorites">Favoritos</h4>
             </Link>
             <Link class="navbar-item" to="/profile">
-              <h4 data-testid="link-to-profile">Perfil</h4>
+              <h4 class="subtitle" data-testid="link-to-profile">Perfil</h4>
             </Link>
           </div>
           <div class="navbar-item navbar-end">
-            <h5 data-testid="header-user-name">{ userName }</h5>
+            <h5 class="subtitle" data-testid="header-user-name">{ userName }</h5>
           </div>
         </nav>
         { loading && <Loading /> }
