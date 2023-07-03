@@ -34,7 +34,9 @@ export default class Header extends React.Component {
     return (
       <header data-testid="header-component">
         <nav class="navbar" role="navigation" aria-label="main navigation">
-          <h3 class="navbar-item subtitle">Copy Tunes</h3>
+          <div class="navbar-item">
+            <h3 class="subtitle">Copy Tunes</h3>
+          </div>
           <div class="navbar-start">
             <Link class="navbar-item" to="/search">
               <h4 class="subtitle" data-testid="link-to-search">Pesquisa</h4>
